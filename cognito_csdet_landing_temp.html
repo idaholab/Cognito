@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<!-- Copyright 2026, Battelle Energy Alliance, LLC, ALL RIGHTS RESERVED -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COGNITO - AI Readiness Framework | Idaho National Laboratory</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
+        }
+        
+        .section-gradient {
+            background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .feature-icon {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        .stagger-5 { animation-delay: 0.5s; }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Header Navigation (CSDET Style) -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-8">
+                    <a href="https://csdet.inl.gov/" class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-blue-600 rounded flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">C</span>
+                        </div>
+                        <div>
+                            <div class="text-sm font-bold text-gray-900">CSDET</div>
+                            <div class="text-xs text-gray-600">Idaho National Laboratory</div>
+                        </div>
+                    </a>
+                    <nav class="hidden md:flex space-x-6">
+                        <a href="#overview" class="text-gray-700 hover:text-blue-600 transition font-medium">Overview</a>
+                        <a href="#framework" class="text-gray-700 hover:text-blue-600 transition font-medium">Framework</a>
+                        <a href="#features" class="text-gray-700 hover:text-blue-600 transition font-medium">Features</a>
+                        <a href="#resources" class="text-gray-700 hover:text-blue-600 transition font-medium">Resources</a>
+                        <a href="#feedback" class="text-gray-700 hover:text-blue-600 transition font-medium">Feedback</a>
+                    </nav>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="https://csdet.inl.gov/" class="text-sm text-gray-600 hover:text-blue-600 transition">
+                        ← Back to CSDET
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center fade-in-up">
+                <div class="inline-block px-4 py-2 bg-blue-500 bg-opacity-30 rounded-full mb-6">
+                    <span class="text-sm font-semibold">Idaho National Laboratory</span>
+                </div>
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                    COGNITO
+                </h1>
+                <p class="text-2xl md:text-3xl font-light mb-8 text-blue-100">
+                    AI Readiness Framework for Electric Utilities
+                </p>
+                <p class="text-xl max-w-3xl mx-auto mb-10 text-blue-50">
+                    A structured, five-step methodology to assess AI readiness, identify appropriate use cases, 
+                    evaluate risks, and implement safeguards for responsible AI deployment in grid operations.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="alert('Launch Application: The COGNITO self-assessment tool will be available when the DOE sponsor approves public release.')" 
+                            class="btn-primary px-8 py-4 text-white rounded-lg font-semibold text-lg shadow-xl">
+                        Launch Application
+                        <svg class="inline-block w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                        </svg>
+                    </button>
+                    <a href="#framework" 
+                       class="px-8 py-4 bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-lg font-semibold text-lg transition border-2 border-white border-opacity-40">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Overview Section -->
+    <section id="overview" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">What is COGNITO?</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    COGNITO is a comprehensive AI Readiness Self-Guide Framework developed by Idaho National Laboratory's 
+                    Center for Securing Digital Energy Technology (CSDET).
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div class="fade-in-up stagger-1">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Purpose</h3>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        Electric utilities face increasing pressure to adopt artificial intelligence for improved operations, 
+                        but lack a structured approach to assess readiness, identify appropriate applications, and manage risks. 
+                        COGNITO bridges this gap by providing a systematic framework tailored specifically for grid operators.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        Whether you're an investor-owned utility, municipal utility, electric cooperative, public power authority, 
+                        independent system operator, or regional transmission organization, COGNITO helps you evaluate AI 
+                        opportunities while ensuring safe, responsible deployment.
+                    </p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border-2 border-blue-200 fade-in-up stagger-2">
+                    <h4 class="text-xl font-bold text-gray-900 mb-6">Key Objectives</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span class="text-gray-700"><strong>Evaluate readiness</strong> across technical, organizational, and governance dimensions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span class="text-gray-700"><strong>Identify optimal areas</strong> that would benefit from AI adoption</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span class="text-gray-700"><strong>Match use cases</strong> based on consequence profiles and technology maturity</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span class="text-gray-700"><strong>Assess risks</strong> and identify appropriate engineering controls</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span class="text-gray-700"><strong>Plan implementation</strong> with clear scenarios and success metrics</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Framework Section -->
+    <section id="framework" class="py-20 section-gradient">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">The COGNITO Framework</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    A systematic five-step process that guides utilities from initial capability assessment 
+                    through to implementation planning with appropriate safeguards.
+                </p>
+            </div>
+            
+            <!-- Five Steps -->
+            <div class="space-y-8">
+                
+                <!-- Step 1 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in-up stagger-1">
+                    <div class="md:flex">
+                        <div class="md:w-1/4 step-number text-white p-8 flex flex-col justify-center items-center">
+                            <div class="text-6xl font-bold mb-2">01</div>
+                            <div class="text-lg font-semibold text-center">Identify Business Context</div>
+                        </div>
+                        <div class="md:w-3/4 p-8">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Identify Business Context</h3>
+                            <p class="text-blue-700 font-semibold mb-3 italic">
+                                Key Questions: Where are we today? What capabilities and gaps define our current readiness for AI?
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Map current capabilities to identify where AI can fix critical gaps, optimize processes, or enhance 
+                                high-performing operations. Document specific opportunities with quantified impacts.
+                            </p>
+                            <div class="bg-blue-50 border-l-4 border-blue-600 p-4 rounded">
+                                <p class="text-sm text-gray-700">
+                                    <strong>Deliverable:</strong> Business maturity analysis, prioritized opportunity list, and AI domain mapping
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in-up stagger-2">
+                    <div class="md:flex">
+                        <div class="md:w-1/4 step-number text-white p-8 flex flex-col justify-center items-center">
+                            <div class="text-6xl font-bold mb-2">02</div>
+                            <div class="text-lg font-semibold text-center">Align AI Use Cases</div>
+                        </div>
+                        <div class="md:w-3/4 p-8">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Align AI Use Cases</h3>
+                            <p class="text-blue-700 font-semibold mb-3 italic">
+                                Key Questions: What should we tackle first and what are the stakes? Which use cases align with our 
+                                mission while matching our risk tolerance?
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Match opportunities to appropriate AI applications using a comprehensive catalog organized by consequence 
+                                level (Low, Moderate, High, Highest) and technology readiness (Ready Now, Emerging, Future State).
+                            </p>
+                            <div class="bg-blue-50 border-l-4 border-blue-600 p-4 rounded">
+                                <p class="text-sm text-gray-700">
+                                    <strong>Deliverable:</strong> Selected use cases with consequence profiles and technology maturity assessments
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in-up stagger-3">
+                    <div class="md:flex">
+                        <div class="md:w-1/4 step-number text-white p-8 flex flex-col justify-center items-center">
+                            <div class="text-6xl font-bold mb-2">03</div>
+                            <div class="text-lg font-semibold text-center">AI Principles Analysis</div>
+                        </div>
+                        <div class="md:w-3/4 p-8">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Analyze AI Principles</h3>
+                            <p class="text-blue-700 font-semibold mb-3 italic">
+                                Key Questions: What do we actually have, what do we need, and what gaps require attention before proceeding?
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Explore readiness through structured questions across seven critical principles: Risk Management, 
+                                Data Availability, Infrastructure, Investment Capacity, Skilled Personnel, Regulatory Compliance, 
+                                and Clear Objectives.
+                            </p>
+                            <div class="bg-blue-50 border-l-4 border-blue-600 p-4 rounded">
+                                <p class="text-sm text-gray-700">
+                                    <strong>Deliverable:</strong> Readiness assessment with documented capabilities, gaps, and red flags
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in-up stagger-4">
+                    <div class="md:flex">
+                        <div class="md:w-1/4 step-number text-white p-8 flex flex-col justify-center items-center">
+                            <div class="text-6xl font-bold mb-2">04</div>
+                            <div class="text-lg font-semibold text-center">Implementation Planning</div>
+                        </div>
+                        <div class="md:w-3/4 p-8">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Implementation Planning & Readiness Validation</h3>
+                            <p class="text-blue-700 font-semibold mb-3 italic">
+                                Key Questions: What exactly are we building and how will we implement it? What will success look like?
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Develop detailed scenarios connecting current operations to AI-enabled futures. Determine build/buy/partner 
+                                approach and validate resources are in place to execute.
+                            </p>
+                            <div class="bg-blue-50 border-l-4 border-blue-600 p-4 rounded">
+                                <p class="text-sm text-gray-700">
+                                    <strong>Deliverable:</strong> Implementation scenarios, KPIs, build/buy decision, and resource validation
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 5 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in-up stagger-5">
+                    <div class="md:flex">
+                        <div class="md:w-1/4 step-number text-white p-8 flex flex-col justify-center items-center">
+                            <div class="text-6xl font-bold mb-2">05</div>
+                            <div class="text-lg font-semibold text-center">Engineering Controls</div>
+                        </div>
+                        <div class="md:w-3/4 p-8">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Evaluate Engineering Controls & Mitigations</h3>
+                            <p class="text-blue-700 font-semibold mb-3 italic">
+                                Key Questions: How will we deploy and sustain it safely? What controls and safeguards are required?
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Identify appropriate safeguards across engineering, operational, and governance domains based on 
+                                consequence analysis. Access framework guidance to support responsible deployment.
+                            </p>
+                            <div class="bg-blue-50 border-l-4 border-blue-600 p-4 rounded">
+                                <p class="text-sm text-gray-700">
+                                    <strong>Deliverable:</strong> Control strategy documentation and framework references
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Key Features</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <div class="bg-gradient-to-br from-blue-50 to-white rounded-xl p-8 border-2 border-blue-200 card-hover fade-in-up stagger-1">
+                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Comprehensive Use Case Catalog</h3>
+                    <p class="text-gray-600">
+                        Pre-vetted AI applications for grid operations, organized by consequence level and technology readiness, 
+                        with detailed implementation guidance and risk characterization.
+                    </p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-purple-50 to-white rounded-xl p-8 border-2 border-purple-200 card-hover fade-in-up stagger-2">
+                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Risk Analysis Wizard</h3>
+                    <p class="text-gray-600">
+                        Structured consequence scoring across nine categories including safety, service continuity, and asset integrity, 
+                        with failure mode identification and security threat assessment.
+                    </p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-green-50 to-white rounded-xl p-8 border-2 border-green-200 card-hover fade-in-up stagger-3">
+                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Data Readiness Assessment</h3>
+                    <p class="text-gray-600">
+                        Systematic evaluation of data availability, quality, integration complexity, and governance requirements 
+                        with gap analysis and remediation planning.
+                    </p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-orange-50 to-white rounded-xl p-8 border-2 border-orange-200 card-hover fade-in-up stagger-1">
+                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Implementation Worksheets</h3>
+                    <p class="text-gray-600">
+                        Detailed scenario planning tools that define AI solutions, establish success metrics, and guide 
+                        build/buy/partner decisions based on organizational capabilities.
+                    </p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-indigo-50 to-white rounded-xl p-8 border-2 border-indigo-200 card-hover fade-in-up stagger-2">
+                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Framework Reference Library</h3>
+                    <p class="text-gray-600">
+                        Curated guidance on relevant standards including NIST AI RMF, NERC CIP, IEC 62443, and 
+                        Cyber-Informed Engineering, organized by applicability to your deployment.
+                    </p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-red-50 to-white rounded-xl p-8 border-2 border-red-200 card-hover fade-in-up stagger-3">
+                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Professional Export Options</h3>
+                    <p class="text-gray-600">
+                        Generate formatted PDF or text reports suitable for stakeholder review, executive briefings, 
+                        vendor RFPs, and project charter documentation.
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Two-Phase Approach -->
+    <section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Flexible Assessment Depth</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    COGNITO offers a two-phase approach allowing organizations to choose their depth of analysis
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- Phase 1 -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 border-l-4 border-green-500 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-2xl mr-4">
+                            1
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900">Phase 1: Critical Assessment</h3>
+                            <p class="text-sm text-green-700 font-semibold">Steps 1-2 + Risk Management</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-700 mb-6">
+                        Provides sufficient insight for initial decision-making, stakeholder discussions, and go/no-go decisions. 
+                        Includes business context, use case alignment, and foundational risk analysis.
+                    </p>
+                    
+                    <div class="bg-green-50 rounded-lg p-4 mb-6">
+                        <h4 class="font-semibold text-green-900 mb-3">What You'll Get:</h4>
+                        <ul class="space-y-2 text-sm text-green-800">
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Business maturity analysis with capability scores
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Selected AI use cases with risk profiles
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Quantified risk scores and initial control recommendations
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="text-center">
+                        <span class="inline-block px-4 py-2 bg-green-600 text-white rounded-lg font-semibold">
+                            Export Phase 1 Report
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Phase 2 -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 border-l-4 border-blue-500 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-2xl mr-4">
+                            2
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900">Phase 2: Deep Analysis</h3>
+                            <p class="text-sm text-blue-700 font-semibold">Complete All 5 Steps</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-700 mb-6">
+                        Comprehensive implementation readiness with detailed scenario planning, complete principle assessment, 
+                        and full control framework documentation ready for execution.
+                    </p>
+                    
+                    <div class="bg-blue-50 rounded-lg p-4 mb-6">
+                        <h4 class="font-semibold text-blue-900 mb-3">Everything from Phase 1, Plus:</h4>
+                        <ul class="space-y-2 text-sm text-blue-800">
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Complete readiness validation across all AI principles
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Detailed implementation scenarios with KPIs
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Build/buy/partner decision with documented rationale
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Comprehensive control framework tailored to your deployment
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="text-center">
+                        <span class="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold">
+                            Export Complete Report
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Resources Section -->
+    <section id="resources" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Available Resources</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- Self-Assessment Tool -->
+                <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl shadow-2xl overflow-hidden card-hover">
+                    <div class="p-8 text-white">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold">Self-Assessment Tool</h3>
+                                <p class="text-blue-100 text-sm">Interactive Web Application</p>
+                            </div>
+                        </div>
+                        
+                        <p class="text-blue-50 mb-6 leading-relaxed">
+                            Browser-based assessment tool with auto-save functionality, guided workflows, and instant 
+                            PDF/text export capabilities. Complete at your own pace with progress tracking across all five steps.
+                        </p>
+                        
+                        <ul class="space-y-3 mb-8 text-blue-50">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Runs entirely in your browser - no data transmitted
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Auto-save with browser storage
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Navigate freely between steps
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Export Phase 1 or complete reports
+                            </li>
+                        </ul>
+                        
+                        <div class="border-t border-white border-opacity-30 pt-6">
+                            <p class="text-sm text-blue-100 mb-4">
+                                <strong>Status:</strong> Application available when DOE sponsor approves public release
+                            </p>
+                            <button onclick="alert('The COGNITO self-assessment tool will be available when the DOE sponsor approves public release.')" 
+                                    class="w-full px-6 py-3 bg-white text-blue-700 rounded-lg hover:bg-blue-50 transition font-semibold">
+                                Coming Soon
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Workshop / Workbook -->
+                <div class="bg-gradient-to-br from-purple-600 to-purple-800 rounded-2xl shadow-2xl overflow-hidden card-hover">
+                    <div class="p-8 text-white">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold">AI Readiness Workshop</h3>
+                                <p class="text-purple-100 text-sm">Facilitated Assessment Session</p>
+                            </div>
+                        </div>
+                        
+                        <p class="text-purple-50 mb-6 leading-relaxed">
+                            Guided workshop experience led by INL subject matter experts. Collaborative session format 
+                            brings together cross-functional teams for comprehensive assessment and stakeholder alignment.
+                        </p>
+                        
+                        <ul class="space-y-3 mb-8 text-purple-50">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Expert facilitation from INL team
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Cross-functional team collaboration
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Structured workbook materials
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                Customized to your organization
+                            </li>
+                        </ul>
+                        
+                        <div class="border-t border-white border-opacity-30 pt-6">
+                            <p class="text-sm text-purple-100 mb-4">
+                                <strong>Status:</strong> Workshop materials available when DOE sponsor approves public release
+                            </p>
+                            <button onclick="alert('The COGNITO workshop and workbook materials will be available when the DOE sponsor approves public release.')" 
+                                    class="w-full px-6 py-3 bg-white text-purple-700 rounded-lg hover:bg-purple-50 transition font-semibold">
+                                Coming Soon
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Section with QR Code -->
+    <section id="feedback" class="py-20 bg-gradient-to-br from-indigo-50 to-purple-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Share Your Feedback</h2>
+                <div class="w-24 h-1 bg-indigo-600 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600">
+                    Participated in a COGNITO workshop or demonstration? We'd love to hear from you!
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Help Us Improve</h3>
+                        <p class="text-gray-700 mb-6 leading-relaxed">
+                            Your input helps us refine the COGNITO framework and better serve the electric utility community. 
+                            Whether you attended a workshop, saw a demonstration, or tested the self-assessment tool, 
+                            your feedback is valuable.
+                        </p>
+                        
+                        <div class="space-y-4 mb-6">
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-indigo-600 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span class="text-gray-700">Workshop participants</span>
+                            </div>
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-indigo-600 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span class="text-gray-700">Demonstration attendees</span>
+                            </div>
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-indigo-600 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span class="text-gray-700">Tool beta testers</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-indigo-50 border-l-4 border-indigo-600 p-4 rounded">
+                            <p class="text-sm text-indigo-900">
+                                <strong>Quick & Easy:</strong> The survey takes approximately 5 minutes to complete
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="bg-white p-6 rounded-xl shadow-lg inline-block">
+                            <div id="qrcode" class="mb-4"></div>
+                            <p class="text-sm text-gray-600 mb-4">Scan to provide feedback</p>
+                            <a href="https://forms.gle/YOUR_FORM_ID" 
+                               target="_blank"
+                               class="inline-block px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition font-semibold">
+                                Or Click Here
+                                <svg class="inline-block w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Benefits Section -->
+    <section class="py-20 bg-gradient-to-br from-gray-900 to-blue-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Why Use COGNITO?</h2>
+                <div class="w-24 h-1 bg-blue-400 mx-auto mb-6"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-xl p-8 border border-white border-opacity-20 card-hover">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold mb-3">Grounded in Reality</h3>
+                    <p class="text-blue-100">
+                        Prevents common AI initiative failures by ensuring use cases align with actual business capabilities, 
+                        data readiness, and strategic priorities before significant investment.
+                    </p>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-xl p-8 border border-white border-opacity-20 card-hover">
+                    <div class="text-4xl mb-4">⚖️</div>
+                    <h3 class="text-xl font-bold mb-3">Risk-Proportional Controls</h3>
+                    <p class="text-blue-100">
+                        Consequence-driven approach ensures safeguards match the criticality of each application—avoiding 
+                        both over-engineering low-risk systems and under-protecting critical functions.
+                    </p>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-xl p-8 border border-white border-opacity-20 card-hover">
+                    <div class="text-4xl mb-4">📋</div>
+                    <h3 class="text-xl font-bold mb-3">Actionable Deliverables</h3>
+                    <p class="text-blue-100">
+                        Produces professional documentation suitable for executive briefings, vendor RFPs, board presentations, 
+                        and project charter development.
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Who Should Use -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Who Should Use COGNITO?</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    COGNITO is designed for electric utilities and grid operators of all types and sizes
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <button onclick="showInterestForm('Investor-Owned Utility')" class="bg-blue-50 rounded-xl p-6 border-2 border-blue-200 hover:border-blue-400 hover:shadow-lg transition-all cursor-pointer text-left">
+                    <h4 class="font-bold text-gray-900 mb-2">Investor-Owned Utilities</h4>
+                    <p class="text-sm text-gray-600">Large-scale operations evaluating AI for asset management, grid optimization, and customer programs</p>
+                    <p class="text-xs text-blue-600 mt-3 font-semibold">Click to express interest →</p>
+                </button>
+                
+                <button onclick="showInterestForm('Municipal Utility')" class="bg-blue-50 rounded-xl p-6 border-2 border-blue-200 hover:border-blue-400 hover:shadow-lg transition-all cursor-pointer text-left">
+                    <h4 class="font-bold text-gray-900 mb-2">Municipal Utilities</h4>
+                    <p class="text-sm text-gray-600">Community-owned systems seeking operational efficiency and improved service delivery</p>
+                    <p class="text-xs text-blue-600 mt-3 font-semibold">Click to express interest →</p>
+                </button>
+                
+                <button onclick="showInterestForm('Electric Cooperative')" class="bg-blue-50 rounded-xl p-6 border-2 border-blue-200 hover:border-blue-400 hover:shadow-lg transition-all cursor-pointer text-left">
+                    <h4 class="font-bold text-gray-900 mb-2">Electric Cooperatives</h4>
+                    <p class="text-sm text-gray-600">Member-owned utilities exploring AI for cost reduction and reliability improvement</p>
+                    <p class="text-xs text-blue-600 mt-3 font-semibold">Click to express interest →</p>
+                </button>
+                
+                <button onclick="showInterestForm('Public Power Authority')" class="bg-blue-50 rounded-xl p-6 border-2 border-blue-200 hover:border-blue-400 hover:shadow-lg transition-all cursor-pointer text-left">
+                    <h4 class="font-bold text-gray-900 mb-2">Public Power Authorities</h4>
+                    <p class="text-sm text-gray-600">Regional entities considering AI for system planning and operational coordination</p>
+                    <p class="text-xs text-blue-600 mt-3 font-semibold">Click to express interest →</p>
+                </button>
+                
+                <button onclick="showInterestForm('Independent System Operator')" class="bg-blue-50 rounded-xl p-6 border-2 border-blue-200 hover:border-blue-400 hover:shadow-lg transition-all cursor-pointer text-left">
+                    <h4 class="font-bold text-gray-900 mb-2">Independent System Operators</h4>
+                    <p class="text-sm text-gray-600">Market operators evaluating AI for dispatch optimization and grid management</p>
+                    <p class="text-xs text-blue-600 mt-3 font-semibold">Click to express interest →</p>
+                </button>
+                
+                <button onclick="showInterestForm('Balancing Authority')" class="bg-blue-50 rounded-xl p-6 border-2 border-blue-200 hover:border-blue-400 hover:shadow-lg transition-all cursor-pointer text-left">
+                    <h4 class="font-bold text-gray-900 mb-2">Balancing Authorities</h4>
+                    <p class="text-sm text-gray-600">Organizations responsible for real-time grid balance and reliability</p>
+                    <p class="text-xs text-blue-600 mt-3 font-semibold">Click to express interest →</p>
+                </button>
+                
+                <button onclick="showInterestForm('AI Vendor/Solution Provider')" class="bg-purple-50 rounded-xl p-6 border-2 border-purple-200 hover:border-purple-400 hover:shadow-lg transition-all cursor-pointer text-left">
+                    <h4 class="font-bold text-gray-900 mb-2">AI Vendors & Solution Providers</h4>
+                    <p class="text-sm text-gray-600">Companies providing AI-integrated products and services to electric utilities</p>
+                    <p class="text-xs text-purple-600 mt-3 font-semibold">Click to express interest →</p>
+                </button>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Interest Form Modal -->
+    <div id="interestModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4" style="display: none;">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-8">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-2">Express Your Interest</h3>
+                        <p class="text-gray-600">Help us understand your needs and stay connected</p>
+                    </div>
+                    <button onclick="closeInterestForm()" class="text-gray-400 hover:text-gray-600 transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <form id="interestForm" onsubmit="submitInterestForm(event)">
+                    <!-- Organization Type (pre-filled) -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Organization Type</label>
+                        <input type="text" id="orgType" readonly 
+                               class="w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-lg text-gray-700 font-medium">
+                    </div>
+                    
+                    <!-- Organization Name -->
+                    <div class="mb-6">
+                        <label for="orgName" class="block text-sm font-semibold text-gray-700 mb-2">
+                            Organization Name <span class="text-red-500">*</span>
+                        </label>
+                        <input type="text" id="orgName" required
+                               placeholder="e.g., Springfield Electric Utility"
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    
+                    <!-- Organization Description -->
+                    <div class="mb-6">
+                        <label for="orgDescription" class="block text-sm font-semibold text-gray-700 mb-2">
+                            Tell us about your organization <span class="text-red-500">*</span>
+                        </label>
+                        <textarea id="orgDescription" required rows="4"
+                                  placeholder="Brief description of your organization, size, service area, or AI interests..."
+                                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+                        <p class="text-xs text-gray-500 mt-1">This helps us tailor COGNITO to your needs</p>
+                    </div>
+                    
+                    <!-- Email (Optional) -->
+                    <div class="mb-6">
+                        <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
+                            Email Address <span class="text-gray-500 text-xs">(Optional)</span>
+                        </label>
+                        <input type="email" id="email"
+                               placeholder="your.email@organization.com"
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        <p class="text-xs text-gray-500 mt-1">We'll use this to notify you when COGNITO is available</p>
+                    </div>
+                    
+                    <!-- Interest Level -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold text-gray-700 mb-3">
+                            Level of Interest <span class="text-red-500">*</span>
+                        </label>
+                        <div class="space-y-3">
+                            <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-blue-400 transition">
+                                <input type="radio" name="interestLevel" value="general" required class="mt-1 mr-3">
+                                <div>
+                                    <div class="font-semibold text-gray-900">General Interest</div>
+                                    <div class="text-sm text-gray-600">Stay informed about COGNITO updates</div>
+                                </div>
+                            </label>
+                            
+                            <label class="flex items-start p-4 border-2 border-blue-200 bg-blue-50 rounded-lg cursor-pointer hover:border-blue-400 transition">
+                                <input type="radio" name="interestLevel" value="beta" class="mt-1 mr-3">
+                                <div>
+                                    <div class="font-semibold text-gray-900">Beta Tester / Early Adopter</div>
+                                    <div class="text-sm text-gray-600">Test the tool before public release and provide feedback</div>
+                                </div>
+                            </label>
+                            
+                            <label class="flex items-start p-4 border-2 border-purple-200 bg-purple-50 rounded-lg cursor-pointer hover:border-purple-400 transition">
+                                <input type="radio" name="interestLevel" value="partner" class="mt-1 mr-3">
+                                <div>
+                                    <div class="font-semibold text-gray-900">Partnership Opportunity</div>
+                                    <div class="text-sm text-gray-600">Collaborate on framework development or pilot implementation</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Comments -->
+                    <div class="mb-6">
+                        <label for="comments" class="block text-sm font-semibold text-gray-700 mb-2">
+                            Additional Comments <span class="text-gray-500 text-xs">(Optional)</span>
+                        </label>
+                        <textarea id="comments" rows="3"
+                                  placeholder="Any specific questions or requirements?"
+                                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+                    </div>
+                    
+                    <!-- Privacy Notice -->
+                    <div class="bg-gray-50 border-l-4 border-gray-400 p-4 mb-6">
+                        <p class="text-xs text-gray-600">
+                            <strong>Privacy Notice:</strong> Your information will be used solely for COGNITO program communication 
+                            and will not be shared with third parties. This data is collected to help us understand our audience 
+                            and prioritize development efforts.
+                        </p>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <div class="flex gap-4">
+                        <button type="submit" 
+                                class="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-blue-700 hover:to-indigo-700 transition shadow-lg">
+                            Submit Interest
+                        </button>
+                        <button type="button" onclick="closeInterestForm()" 
+                                class="px-8 py-4 border-2 border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-6">Ready to Assess Your AI Readiness?</h2>
+            <p class="text-xl text-blue-100 mb-8">
+                Begin your COGNITO assessment today and develop a clear roadmap for responsible AI implementation
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="alert('Launch Application: The COGNITO self-assessment tool will be available when the DOE sponsor approves public release.')" 
+                        class="px-8 py-4 bg-white text-blue-700 rounded-lg hover:bg-blue-50 transition font-semibold text-lg shadow-xl">
+                    Launch Self-Assessment Tool
+                </button>
+                <a href="https://csdet.inl.gov/" 
+                   class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg hover:bg-white hover:text-blue-700 transition font-semibold text-lg">
+                    Learn More About CSDET
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">COGNITO Framework</h3>
+                    <p class="text-sm mb-4">
+                        Developed by Idaho National Laboratory's Center for Securing Digital Energy Technology (CSDET)
+                    </p>
+                    <p class="text-sm">
+                        Supporting responsible AI adoption in critical energy infrastructure
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Resources</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>
+                            <a href="https://csdet.inl.gov/" class="hover:text-white transition">CSDET Homepage</a>
+                        </li>
+                        <li>
+                            <a href="https://inl.gov/" class="hover:text-white transition">Idaho National Laboratory</a>
+                        </li>
+                        <li>
+                            <a href="https://inl.gov/cie/" class="hover:text-white transition">Cyber-Informed Engineering</a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="alert('Documentation will be available when the DOE sponsor approves public release.'); return false;" class="hover:text-white transition">Framework Documentation (Coming Soon)</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Contact</h3>
+                    <p class="text-sm mb-4">
+                        For questions about COGNITO or to request a facilitated workshop:
+                    </p>
+                    <a href="mailto:csdet@inl.gov" class="text-blue-400 hover:text-blue-300 transition text-sm">
+                        csdet@inl.gov
+                    </a>
+                </div>
+                
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 text-center text-sm">
+                <p>&copy; 2026 Idaho National Laboratory. All rights reserved.</p>
+                <p class="mt-2">
+                    Idaho National Laboratory is a U.S. Department of Energy National Laboratory operated by Battelle Energy Alliance
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Generate QR Code when page loads
+        window.addEventListener('DOMContentLoaded', function() {
+            const qrcodeElement = document.getElementById('qrcode');
+            if (qrcodeElement && typeof QRCode !== 'undefined') {
+                new QRCode(qrcodeElement, {
+                    text: "https://forms.gle/YOUR_FORM_ID",
+                    width: 200,
+                    height: 200,
+                    colorDark: "#4f46e5",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            }
+        });
+        
+        // Interest Form Functions
+        function showInterestForm(orgType) {
+            document.getElementById('orgType').value = orgType;
+            document.getElementById('interestModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            
+            // Log the selection (you can send this to analytics)
+            console.log('User selected organization type:', orgType);
+            
+            // Optional: Track with analytics if you have it set up
+            // gtag('event', 'interest_form_opened', { organization_type: orgType });
+        }
+        
+        function closeInterestForm() {
+            document.getElementById('interestModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            document.getElementById('interestForm').reset();
+        }
+        
+        function submitInterestForm(event) {
+            event.preventDefault();
+            
+            // Collect form data
+            const formData = {
+                organizationType: document.getElementById('orgType').value,
+                organizationName: document.getElementById('orgName').value,
+                description: document.getElementById('orgDescription').value,
+                email: document.getElementById('email').value,
+                interestLevel: document.querySelector('input[name="interestLevel"]:checked')?.value,
+                comments: document.getElementById('comments').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Log to console (in production, send to your backend/database)
+            console.log('Interest form submitted:', formData);
+            
+            // Store in localStorage for tracking (optional)
+            const existingData = JSON.parse(localStorage.getItem('cognitoInterests') || '[]');
+            existingData.push(formData);
+            localStorage.setItem('cognitoInterests', JSON.stringify(existingData));
+            
+            // In production, you would send this to your backend:
+            // fetch('/api/interest', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(formData)
+            // });
+            
+            // Show success message
+            alert('Thank you for your interest in COGNITO!\n\n' + 
+                  (formData.email ? 'We\'ll contact you at ' + formData.email + ' when the tool is available.' : 
+                   'Check back at csdet.inl.gov for updates.') +
+                  '\n\n' + 
+                  (formData.interestLevel === 'beta' ? 'You\'ve been added to our beta testing list!' : 
+                   formData.interestLevel === 'partner' ? 'Someone from our team will reach out to discuss partnership opportunities.' : 
+                   'We\'ll keep you informed of COGNITO developments.'));
+            
+            // Close the modal
+            closeInterestForm();
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('interestModal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeInterestForm();
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.getElementById('interestModal').style.display === 'flex') {
+                closeInterestForm();
+            }
+        });
+    </script>
+
+</body>
+</html>
